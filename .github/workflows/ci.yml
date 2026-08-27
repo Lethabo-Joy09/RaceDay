@@ -38,7 +38,7 @@ jobs:
         if [ -f "docs/API-ENDPOINT-PLAN.md" ] || [ -f "docs/API-ENDPOINT-PLAN.pdf" ]; then
           echo " API endpoint plan exists"
         else
-          echo "❌ API endpoint plan missing"
+          echo " API endpoint plan missing"
           exit 1
         fi
     
