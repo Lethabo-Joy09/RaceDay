@@ -65,11 +65,11 @@ jobs:
         COMMIT_COUNT=$(git rev-list --count HEAD)
         echo "Total commits: $COMMIT_COUNT"
         if [ $COMMIT_COUNT -ge 20 ]; then
-          echo "✅ $COMMIT_COUNT commits - meets minimum requirement"
+          echo " $COMMIT_COUNT commits - meets minimum requirement"
         else
-          echo "❌ Only $COMMIT_COUNT commits - need at least 20"
+          echo " Only $COMMIT_COUNT commits - need at least 20"
           exit 1
         fi
     
     - name: All checks passed
-      run: echo "🎉 All required files are present! Part 1 is ready for submission."
+      run: echo " All required files are present! Part 1 is ready for submission."
