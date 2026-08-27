@@ -36,7 +36,7 @@ jobs:
     - name: Check API plan exists
       run: |
         if [ -f "docs/API-ENDPOINT-PLAN.md" ] || [ -f "docs/API-ENDPOINT-PLAN.pdf" ]; then
-          echo "✅ API endpoint plan exists"
+          echo " API endpoint plan exists"
         else
           echo "❌ API endpoint plan missing"
           exit 1
