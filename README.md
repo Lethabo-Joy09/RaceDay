@@ -1,6 +1,3 @@
----
-
-```markdown
 # RaceDay API - Programming 2B (PROG6212)
 
 ## System Description
@@ -120,9 +117,6 @@ The video covers:
 - Database structure and sample data explanation
 
 ## Repository Structure
-
-```
-
 RaceDayApi/
 ├── docs/
 │   ├── ERD.png                    # Entity Relationship Diagram
@@ -134,58 +128,5 @@ RaceDayApi/
 ├── README.md                      # Project documentation
 └── build-success.png              # CI/CD build success screenshot
 
-```
 
-## Setup Instructions
 
-1. Clone this repository
-```
-
-git clone https://github.com/YourUsername/RaceDayApi.git
-
-```
-
-2. Open the SQL script in SQL Server Management Studio (SSMS)
-- File: `docs/RaceDayDB-Schema.sql`
-- Run the script to create the RaceDayDB database
-
-3. Open the solution in Visual Studio 2022
-- File: `RaceDayApi.sln`
-
-4. Update the connection string in `appsettings.json` if needed
-
-5. Build and run the application
-
-## Technologies Used
-
-- **.NET 8.0** - Backend framework
-- **SQL Server LocalDB** - Database
-- **Entity Framework Core** - ORM
-- **JWT Authentication** - Security
-- **Swagger/OpenAPI** - API documentation
-- **GitHub Actions** - CI/CD
-
-## Author
-
-**Name:** [Your Name]  
-**Student Number:** [Your Student Number]  
-**Module:** Programming 2B (PROG6212)  
-**Year:** 2026
-
-## Submission Checklist
-
-- [x] ERD created with 8 entities
-- [x] All primary keys, foreign keys, and cardinalities shown
-- [x] API endpoint plan with all required endpoints
-- [x] SQL script with all tables, constraints, and sample data
-- [x] 20+ meaningful GitHub commits
-- [x] GitHub Actions CI/CD workflow configured
-- [x] Successful green build
-- [x] YouTube video explaining all planning documents
-
----
-
-**End of README**
-```
-
----
