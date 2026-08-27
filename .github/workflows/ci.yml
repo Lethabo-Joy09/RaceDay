@@ -27,9 +27,9 @@ jobs:
     - name: Check SQL script exists
       run: |
         if [ -f "docs/RaceDayDB-Schema.sql" ]; then
-          echo "✅ SQL script exists"
+          echo " SQL script exists"
         else
-          echo "❌ SQL script missing"
+          echo " SQL script missing"
           exit 1
         fi
     
