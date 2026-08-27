@@ -20,7 +20,7 @@ jobs:
         if [ -d "docs" ]; then
           echo " docs folder exists"
         else
-          echo "❌ docs folder missing"
+          echo " docs folder missing"
           exit 1
         fi
     
