@@ -2,7 +2,7 @@
 
 ## System Description
 
-The RaceDay system is a comprehensive race event management platform designed to connect event organisers with participants. The system allows organisers to create and manage running events, define event categories with different distances and prices, manage participant enrolments, and capture race results. Participants can browse upcoming events, enrol in events of their choice, and track their personal race results.
+The RaceDay system is a comprehensive race event management platform designed to connect event organisers with participants. The system allows organisers to create and manage running events, define event categories with different distances and prices, manage participant enrolments, and capture race results. Participants can browse upcoming events, enrol in events of their choice, and track their personal race results
 
 ## User Roles
 
