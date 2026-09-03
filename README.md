@@ -38,9 +38,6 @@ The database consists of 8 interconnected tables:
 | Enrolments | Participant enrolments in specific event categories |
 | Results | Race results linked to enrolments |
 
-### Entity Relationship Diagram
-
-![ERD](docs/ERD.png)
 
 ### Relationships Summary
 
