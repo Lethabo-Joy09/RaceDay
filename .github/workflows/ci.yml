@@ -9,67 +9,62 @@ on:
 jobs:
   validate-docs:
     runs-on: ubuntu-latest
-    
+
     steps:
-    - uses: actions/checkout@v3
+    - name: Checkout repository
+      uses: actions/checkout@v4
       with:
         fetch-depth: 0
-    
-    - name: Check docs folder exists
-      run: |
-        if [ -d "docs" ]; then
-          echo " docs folder exists"
-        else
-          echo " docs folder missing"
-          exit 1
-        fi
-    
+
     - name: Check SQL script exists
       run: |
-        if [ -f "docs/RaceDayDB-Schema.sql" ]; then
-          echo " SQL script exists"
+        if [ -f "SQLQuery1.sql" ]; then
+          echo "SQL script exists"
         else
-          echo " SQL script missing"
+          echo "SQL script missing"
           exit 1
         fi
-    
+
     - name: Check API plan exists
       run: |
-        if [ -f "docs/API-ENDPOINT-PLAN.md" ] || [ -f "docs/API-ENDPOINT-PLAN.pdf" ]; then
-          echo " API endpoint plan exists"
+        if [ -f "API-ENDPOINT-PLAN.md" ] || [ -f "API-ENDPOINT-PLAN.pdf" ]; then
+          echo "API endpoint plan exists"
         else
-          echo " API endpoint plan missing"
+          echo "API endpoint plan missing"
           exit 1
         fi
-    
+
     - name: Check ERD exists
       run: |
-        if find docs -type f \( -name "*.png" -o -name "*.pdf" -o -name "*.jpg" -o -name "*.jpeg" \) | grep -q .; then
-          echo " ERD exists"
+        if find . -maxdepth 1 -type f \( -name "*.png" -o -name "*.pdf" -o -name "*.jpg" -o -name "*.jpeg" \) | grep -q .; then
+          echo "ERD exists"
         else
-          echo " ERD missing (PNG or PDF required)"
+          echo "ERD missing"
           exit 1
         fi
-    
+
     - name: Check README exists
       run: |
         if [ -f "README.md" ]; then
-          echo " README exists"
+          echo "README exists"
         else
-          echo " README missing"
+          echo "README missing"
           exit 1
         fi
-    
+
     - name: Check commit count
       run: |
         COMMIT_COUNT=$(git rev-list --count HEAD)
         echo "Total commits: $COMMIT_COUNT"
-        if [ $COMMIT_COUNT -ge 20 ]; then
-          echo " $COMMIT_COUNT commits - meets minimum requirement"
+
+        if [ "$COMMIT_COUNT" -ge 20 ]; then
+          echo "$COMMIT_COUNT commits - meets minimum requirement"
         else
-          echo " Only $COMMIT_COUNT commits - need at least 20"
+          echo "Only $COMMIT_COUNT commits - need at least 20"
           exit 1
         fi
-    
+
     - name: All checks passed
-      run: echo " All required files are present! Part 1 is ready for submission."
+      run: |
+        echo "All required files are present!"
+        echo "Part 1 documentation checks passed."
