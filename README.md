@@ -104,11 +104,10 @@ The project uses GitHub Actions for continuous integration. The workflow validat
 - Minimum of 20 meaningful commits
 - All planning documents are complete
 
-![Successful Build](build-success.png)
 
 ## Video Walkthrough
 
-[Watch the Part 1 Walkthrough Video](https://www.youtube.com/watch?v=your-video-link)
+[Watch the Part 1 Walkthrough Video] https://youtu.be/DW-S8ZoYOZU
 
 The video covers:
 - ERD design decisions and relationships
