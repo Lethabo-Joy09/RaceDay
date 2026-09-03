@@ -1,128 +1,227 @@
-# RaceDay API - Programming 2B (PROG6212)
-
-## System Description
-
-The RaceDay system is a comprehensive race event management platform designed to connect event organisers with participants. The system allows organisers to create and manage running events, define event categories with different distances and prices, manage participant enrolments, and capture race results. Participants can browse upcoming events, enrol in events of their choice, and track their personal race results
-
-## User Roles
-
+# RaceDay
+## Programming 2B - PROG6212
+RaceDay is a race event management system designed to allow organisers to manage running events, race categories, participant enrolments and race results.
+The system supports two main roles:
+- **Organiser**
+- **Participant**
+---
+## Project Features
 ### Organiser
-Organisers are event creators and managers who can:
-- Create, edit, and delete events
-- Manage event categories and pricing
-- View all event enrolments
-- Capture and manage participant results
-- Monitor event statistics and participant counts
-
+Organisers can:
+- Register and log in
+- Create events
+- Update events
+- Delete events
+- Create and manage race categories
+- Add categories to events
+- Update event category details
+- Remove categories from events
+- View participant enrolments
+- Manage enrolment statuses
+- Capture race results
+- Update race results
+- View organiser dashboard information
 ### Participant
-Participants are race entrants who can:
-- Create an account and manage their profile
-- Browse and search for upcoming events
-- Enrol in events by selecting a category
-- View their own enrolment history
-- Track their personal race results
-- View their race positions and times
+Participants can:
+- Register and log in
+- Update their profile
+- View available events
+- View race categories
+- Enrol in events
+- View their enrolment history
+- Withdraw from an enrolment
+- View their personal race results
+- View participant dashboard information
+---
+# Database
+The RaceDay database consists of the following tables:
+- Users
+- Organisers
+- Participants
+- Categories
+- Events
+- EventCategories
+- Enrolments
+- Results
+The database uses primary keys, foreign keys, unique constraints and relationships to maintain data integrity.
+---
+# Entity Relationship Diagram (ERD)
+The ERD illustrates the tables in the RaceDay database and the relationships between them.
+![RaceDay ERD](RaceDay_ERD.png.jpeg)
+---
+# API Endpoint Plan
+The complete API endpoint plan is available in:
+**API-ENDPOINT-PLAN.md**
+The API includes endpoints for:
+- Authentication
+- User profiles
+- Events
+- Categories
+- Event categories
+- Enrolments
+- Results
+- Dashboards
+---
+# Authentication Endpoints
+### Register
+```http
+POST /api/auth/register
 
-## Database Design
+Registers a new Organiser or Participant account.
 
-The database consists of 8 interconnected tables:
+Login
 
-| Table | Description |
-|-------|-------------|
-| Users | Stores user credentials and role information |
-| Organisers | Organiser-specific details linked to Users |
-| Participants | Participant-specific details linked to Users |
-| Categories | Race categories with distance information |
-| Events | Event details created by organisers |
-| EventCategories | Junction table linking events to categories with pricing |
-| Enrolments | Participant enrolments in specific event categories |
-| Results | Race results linked to enrolments |
+POST /api/auth/login
 
+Authenticates a user and returns an authorization token.
 
-### Relationships Summary
+⸻
 
-| From Table | To Table | Cardinality | Type |
-|------------|----------|-------------|------|
-| Users | Organisers | 1 → 0..1 | One-to-One |
-| Users | Participants | 1 → 0..1 | One-to-One |
-| Organisers | Events | 1 → 1..* | One-to-Many |
-| Events | EventCategories | 1 → 1..* | One-to-Many |
-| Categories | EventCategories | 1 → 1..* | One-to-Many |
-| Participants | Enrolments | 1 → 1..* | One-to-Many |
-| EventCategories | Enrolments | 1 → 1..* | One-to-Many |
-| Enrolments | Results | 1 → 0..1 | One-to-One |
+User Profile Endpoints
 
-## API Endpoints
+GET /api/users/profile
+PUT /api/users/profile
 
-The API provides RESTful endpoints for all system functionality. Below is a summary of the available endpoints:
+These endpoints allow logged-in users to view and update their profile information.
 
-### Authentication
-- `POST /api/auth/register` - Register a new user
-- `POST /api/auth/login` - Login and receive JWT token
+⸻
 
-### Users
-- `GET /api/users/profile` - Get current user profile
-- `PUT /api/users/profile` - Update user profile
+Event Endpoints
 
-### Events
-- `GET /api/events` - Get all events
-- `GET /api/events/{id}` - Get specific event
-- `POST /api/events` - Create event (Organiser only)
-- `PUT /api/events/{id}` - Update event (Organiser only)
-- `DELETE /api/events/{id}` - Delete event (Organiser only)
+GET /api/events
+GET /api/events/{eventId}
+POST /api/events
+PUT /api/events/{eventId}
+DELETE /api/events/{eventId}
 
-### Categories
-- `GET /api/categories` - Get all categories
-- `POST /api/categories` - Create category (Organiser only)
-- `PUT /api/categories/{id}` - Update category (Organiser only)
-- `DELETE /api/categories/{id}` - Delete category (Organiser only)
+These endpoints allow users to view events and allow organisers to create, update and delete events.
 
-### Enrolments
-- `GET /api/enrolments` - Get all enrolments (Organiser only)
-- `GET /api/enrolments/my` - Get my enrolments (Participant only)
-- `POST /api/enrolments` - Create enrolment (Participant only)
-- `PUT /api/enrolments/{id}` - Update enrolment (Organiser only)
-- `DELETE /api/enrolments/{id}` - Withdraw enrolment
+⸻
 
-### Results
-- `GET /api/events/{id}/results` - Get event results
-- `GET /api/results/my` - Get my results (Participant only)
-- `POST /api/enrolments/{id}/result` - Add result (Organiser only)
-- `PUT /api/results/{id}` - Update result (Organiser only)
+Category Endpoints
 
-For complete endpoint details including request bodies and responses, see the [API Endpoint Plan](docs/API-ENDPOINT-PLAN.md).
+GET /api/categories
+POST /api/categories
+PUT /api/categories/{categoryId}
+DELETE /api/categories/{categoryId}
 
-## CI/CD Pipeline
+These endpoints allow users to view race categories and organisers to manage them.
 
-The project uses GitHub Actions for continuous integration. The workflow validates:
+⸻
 
-- Repository structure
-- Presence of all required documents in the /docs folder
-- Minimum of 20 meaningful commits
-- All planning documents are complete
+Event Category Endpoints
 
+GET /api/events/{eventId}/categories
+POST /api/events/{eventId}/categories
+PUT /api/events/{eventId}/categories/{eventCategoryId}
+DELETE /api/events/{eventId}/categories/{eventCategoryId}
 
-## Video Walkthrough
+These endpoints manage the categories associated with individual events.
 
-[Watch the Part 1 Walkthrough Video] - https://youtu.be/DW-S8ZoYOZU
+⸻
 
-The video covers:
-- ERD design decisions and relationships
-- API endpoint planning and choices
-- SQL database script demonstration in SSMS
-- Database structure and sample data explanation
+Enrolment Endpoints
 
-## Repository Structure
-RaceDayApi/
-├── docs/
-│   ├── ERD.png                    # Entity Relationship Diagram
-│   ├── API-ENDPOINT-PLAN.md       # Complete API endpoint specifications
-│   └── RaceDayDB-Schema.sql       # SQL database script with sample data
+GET /api/enrolments
+GET /api/enrolments/my
+GET /api/enrolments/{enrolmentId}
+POST /api/enrolments
+PUT /api/enrolments/{enrolmentId}
+DELETE /api/enrolments/{enrolmentId}
+
+These endpoints allow participants to enrol in events and allow organisers to manage enrolments.
+
+⸻
+
+Results Endpoints
+
+GET /api/events/{eventId}/results
+GET /api/results/my
+GET /api/enrolments/{enrolmentId}/result
+POST /api/enrolments/{enrolmentId}/result
+PUT /api/results/{resultId}
+
+These endpoints allow race results to be viewed, captured and updated.
+
+⸻
+
+Additional System Endpoints
+
+GET /api/events/{eventId}/enrolments
+GET /api/events/{eventId}/summary
+GET /api/dashboard/organiser
+GET /api/dashboard/participant
+
+These endpoints provide event enrolment information, event summaries and dashboard information.
+
+⸻
+
+Role-Based Access
+
+Role	Access
+Public	Register and Login
+Logged-in User	View events, categories and own profile
+Participant	Enrol in events, view own enrolments and results
+Organiser	Manage events, categories, enrolments and results
+
+⸻
+
+Database Script
+
+The SQL database script is provided in:
+
+SQLQuery1.sql
+
+The script contains:
+
+* Table creation
+* Primary keys
+* Foreign keys
+* Constraints
+* Sample data
+* Data verification queries
+* Enrolment queries
+* Result queries
+
+⸻
+
+Repository Files
+
+RaceDay/
+│
 ├── .github/
 │   └── workflows/
-│       └── ci.yml                 # GitHub Actions CI/CD workflow
-├── README.md                      # Project documentation
-└── build-success.png              # CI/CD build success screenshot
+│       └── ci.yml
+│
+├── API-ENDPOINT-PLAN.md
+├── RaceDay_ERD.png.jpeg
+├── README.md
+└── SQLQuery1.sql
+
+⸻
+
+CI/CD
+
+The project includes a GitHub Actions workflow located at:
+
+.github/workflows/ci.yml
+
+The workflow is used to automatically run checks when changes are pushed to the repository.
+
+⸻
+
+Technologies
+
+* C#
+* ASP.NET Core Web API
+* SQL Server
+* GitHub
+* GitHub Actions
+
+### One thing to remember
+Because your current GitHub file is **`RaceDay_ERD.png.jpeg`**, I deliberately used:
+```markdown
+![RaceDay ERD](RaceDay_ERD.png.jpeg)
 
 
 
