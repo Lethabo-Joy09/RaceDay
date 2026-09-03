@@ -104,7 +104,7 @@ The project uses GitHub Actions for continuous integration. The workflow validat
 
 ## Video Walkthrough
 
-[Watch the Part 1 Walkthrough Video] https://youtu.be/DW-S8ZoYOZU
+[Watch the Part 1 Walkthrough Video] - https://youtu.be/DW-S8ZoYOZU
 
 The video covers:
 - ERD design decisions and relationships
