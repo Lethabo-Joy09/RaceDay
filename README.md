@@ -54,6 +54,9 @@ The project includes a GitHub Actions workflow located at:
 The workflow is used to automatically run checks when changes are pushed to the repository.
 
 ![CI/CD Pipeline](CICD.png)
+# YouTube Demonstration
+
+[RaceDay System Demonstration](https://youtu.be/DW-S8ZoYOZU)
 
 # Entity Relationship Diagram (ERD)
 The ERD illustrates the tables in the RaceDay database and the relationships between them.
@@ -227,9 +230,7 @@ Technologies
 * SQL Server
 * GitHub
 * GitHub Actions
-# YouTube Demonstration
 
-[RaceDay System Demonstration](https://youtu.be/DW-S8ZoYOZU)
 
 
 
