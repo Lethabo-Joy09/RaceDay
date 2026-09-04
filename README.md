@@ -207,21 +207,30 @@ The project includes a GitHub Actions workflow located at:
 .github/workflows/ci.yml
 
 The workflow is used to automatically run checks when changes are pushed to the repository.
+# CI/CD
+
+The project includes a GitHub Actions workflow located at:
+
+.github/workflows/ci.yml
+
+The workflow is used to automatically run checks when changes are pushed to the repository.
+
+![CI/CD Pipeline](CICD.png)
 
 ⸻
 
 Technologies
 
-* C#
+
 * ASP.NET Core Web API
 * SQL Server
 * GitHub
 * GitHub Actions
+# YouTube Demonstration
 
-### One thing to remember
-Because your current GitHub file is **`RaceDay_ERD.png.jpeg`**, I deliberately used:
-```markdown
-![RaceDay ERD](RaceDay_ERD.png.jpeg)
+[RaceDay System Demonstration](https://youtu.be/DW-S8ZoYOZU)
+
+
 
 
 
