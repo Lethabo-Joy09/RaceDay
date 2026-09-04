@@ -45,6 +45,16 @@ The RaceDay database consists of the following tables:
 - Results
 The database uses primary keys, foreign keys, unique constraints and relationships to maintain data integrity.
 ---
+# CI/CD
+
+The project includes a GitHub Actions workflow located at:
+
+.github/workflows/ci.yml
+
+The workflow is used to automatically run checks when changes are pushed to the repository.
+
+![CI/CD Pipeline](CICD.png)
+
 # Entity Relationship Diagram (ERD)
 The ERD illustrates the tables in the RaceDay database and the relationships between them.
 ![RaceDay ERD](RaceDay_ERD.png.jpeg)
@@ -207,15 +217,6 @@ The project includes a GitHub Actions workflow located at:
 .github/workflows/ci.yml
 
 The workflow is used to automatically run checks when changes are pushed to the repository.
-# CI/CD
-
-The project includes a GitHub Actions workflow located at:
-
-.github/workflows/ci.yml
-
-The workflow is used to automatically run checks when changes are pushed to the repository.
-
-![CI/CD Pipeline](CICD.png)
 
 ⸻
 
